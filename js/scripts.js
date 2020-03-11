@@ -5,7 +5,7 @@
 
  // .find() returns the first occurence
  
-var myArray = [ 'hello, world!', 2, 3, true, 'abc', 5, null ];
+var myArray = [ 'hello, world!', 2, 3, true, 'abc', 5, null, 38 ];
 var myValue = myArray.find( function ( element ) { return element > 4 } ); // Can be used to see if element exists
 console.log( myValue ); // Returns 5, an element from our array! Only gives us one item back.
 
@@ -23,3 +23,19 @@ console.log( isMyStringInside ); //Not found :(
 // Still searching for an element!
  var findAnIndex = myArray.findIndex( function (element ) {return element === 2; } );
  console.log( findAnIndex ); // But this time, it returned the valuse's INDEX
+
+
+ /**
+ * .entries() returns index number and value of each element of the array
+ */
+
+ var pairing = myArray.entries();
+ console.log( pairing ); //returns an iterator
+ console.log( pairing.next().value ); // We can keep bumping to the next item, getting a nice key/value array to let us know what's inside!
+ console.log( pairing.next().value );
+ console.log( pairing.next().value );
+ console.log( pairing.next().value );
+ console.log( pairing.next().value );
+ console.log( pairing.next().value );
+ console.log( pairing.next().value );
+ console.log( pairing.next().value );
