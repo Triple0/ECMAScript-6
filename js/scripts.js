@@ -101,3 +101,15 @@ for ( let myNewVar = 0; myNewVar < 10; myNewVar++ ) {
 }
 
 //console.log( 'myNewVar = '+myNewVar); // We can't access it outside of the block
+
+/**
+ * Const can't be re-assigned... but its insides can be manipulated
+ */
+
+ const myObj = {
+     name: 'Henry',
+     age: 18
+ }
+
+ myObj.name = 'Sandy'; // Can we update PROPERTIES or array ELEMENTS inside of a const-declared variables?
+ console.log( myObj );
