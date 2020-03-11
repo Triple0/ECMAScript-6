@@ -1,3 +1,4 @@
+// import './Movies.Class'; // Bring in our file.
 
 /**
  * Let's see what some of our newer array metods are...
@@ -224,15 +225,52 @@ console.log(myReplacedString);
  *  Blocks:
  */
 
- {
-     const myBlockNestedVar = 38;
- }
+{
+    const myBlockNestedVar = 38;
+}
 
- //console.log( myBlockNestedVar ); - won't print cos it is outside its block
- // We CAN name blocks if we want.
- myOrganizeName: {
-     // We can organise some code in here, and control scope of let/const
-     let myBlockNestedVar = 55; // We used the same name as in our unnamed block!? That's okay, it was born in a differently scoped block!
-     myBlockNestedVar++;
-     console.log( myBlockNestedVar );
- }
+//console.log( myBlockNestedVar ); - won't print cos it is outside its block
+// We CAN name blocks if we want.
+
+let myFinalResult = 0;
+myOrganizeName: { // This could be named anything...
+    // We can organise some code in here, and control scope of let/const
+    let myBlockNestedVar = 55; // We used the same name as in our unnamed block!? That's okay, it was born in a differently scoped block!
+    myBlockNestedVar++;
+    console.log(myBlockNestedVar);
+    myFinalResult = myBlockNestedVar;
+}
+console.log(myFinalResult);
+
+/**
+*  Classes.
+* ***** CHECK OUR IMPORT, THAT'S HOW WE'RE ACCESSING THIS!
+*/
+
+
+class Movie {
+    constructor(name, genre, year) {
+        this.name = name;
+        this.genre = genre;
+        this.year = year;
+    }
+}
+
+showPoster() {
+    const info = `
+        MOVIE INFO
+        ==========
+        Name:  ${this.name}
+        Genre: ${this.genre}
+        Year:  ${this.year}
+        `;
+        return info;
+}
+
+const tron = new Movie('Disney\'s TRON', 'Adventure', 1982);
+const dragonheart = new Movie('Dragonheart', 'Medieval Fantasy', 1996);
+const godFather = new Movie('GodFather II', 'Action/Thriller', 1974);
+
+console.log(tron);
+console.log(dragonheart);
+console.log(godFather);
