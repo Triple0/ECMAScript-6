@@ -113,8 +113,8 @@ const myObj = {
 
 myObj.name = 'Sandy'; // Can we update PROPERTIES or array ELEMENTS inside of a const-declared variables?
 myObj.hobbies = [];
-myObj.hobbies.push( 'Mountain Climbing' );
-console.log( myObj );
+myObj.hobbies.push('Mountain Climbing');
+console.log(myObj);
 
 
 // myObj = {} // THIS WOULD STILL ERROR. Only insides for a const can be manipulated.
@@ -124,74 +124,115 @@ console.log( myObj );
  * New syntax
  */
 
-function myFunction( a, b ) {
-    return Number( a ) + Number( b );
+function myFunction(a, b) {
+    return Number(a) + Number(b);
 }
 
-console.log(myFunction( 3, 7 ) );
+console.log(myFunction(3, 7));
 
 // ES6 style:
-myFunction = (a, b) => Number( a ) + Number( b ); // Instant return with no curly braces.
+myFunction = (a, b) => Number(a) + Number(b); // Instant return with no curly braces.
 
 console.log(myFunction(3, 8));
 
 
 // Bigger function (ES6)
-myOtherFunction = ( a, b ) => {
-    const myAnswer = Number( a ) + Number( b ); // Use curly braces for larger, more complex operations.
+myOtherFunction = (a, b) => {
+    const myAnswer = Number(a) + Number(b); // Use curly braces for larger, more complex operations.
     return myAnswer;
 }
 
-console.log( myOtherFunction( 34, 6 ) );
+console.log(myOtherFunction(34, 6));
 
 /**
  *  Function default parameter values
  */
 
 // We can set defaults, to prevent errors in case notthing gets passed in for a parameter!
-addNums = ( x = 0, y = 0 ) => x + y;
+addNums = (x = 0, y = 0) => x + y;
 
-console.log( addNums() ); // No arguments! But our default values kick in!
+console.log(addNums()); // No arguments! But our default values kick in!
 
 /**
  *  Rest parameter.
  */
 
- findHighNum = ( minNum = 0, ...args ) => { // ...args will capture any number of arguments that we pass!
-    minNum = Number( minNum );
-    if ( minNum == NaN ) minNum = 0;
-    const highNums = args.filter( ( element ) => element > minNum ); 
+findHighNum = (minNum = 0, ...args) => { // ...args will capture any number of arguments that we pass!
+    minNum = Number(minNum);
+    if (minNum == NaN) minNum = 0;
+    const highNums = args.filter((element) => element > minNum);
     //console.log( args ); // It can be called by the name we had inbetweeen our parenthesis.
-     return highNums; 
- }
+    return highNums;
+}
 
- console.log( findHighNum( 5, 2, 20, 50, 3, 0, 10, 24, -508) );
+console.log(findHighNum(5, 2, 20, 50, 3, 0, 10, 24, -508));
 
- addAllNums = ( ...nums ) => nums.reduce( ( a, v ) => a + v );
- console.log( addAllNums( 64, 6, 10 ) );
+addAllNums = (...nums) => nums.reduce((a, v) => a + v);
+console.log(addAllNums(64, 6, 10));
 
 /**
  *  Template Literals.
  */
 
- const helloVar = 'Hello, World!';
- const sampleName = 'Sam';
+const helloVar = 'Hello, World!';
+const sampleName = 'Sam';
 
- constmyNewString = `Hey there, my name is ${sampleName}; I\'d like to give you a big: "${helloVar}"!!`; // works using ` (back ticks)
- // The syntax for template literala is: ${variableName}
- // NOTE: This only works inside of backticks! but is super useful. It saves us from extra concatenation.
- console.log(constmyNewString);
+constmyNewString = `Hey there, my name is ${sampleName}; I\'d like to give you a big: "${helloVar}"!!`; // works using ` (back ticks)
+// The syntax for template literala is: ${variableName}
+// NOTE: This only works inside of backticks! but is super useful. It saves us from extra concatenation.
+console.log(constmyNewString);
 
- /**
- *  Spread Operator
- *  *** Don't get this confused with the rest paramenter! Bother are three dots ...
- *  *** Remember that rest parameter is aways in PARAMETER area of a function, nowhere else. Spread is used ANYWHERE else, basically.
- */
-const newArray = ['Hello', ',', ' ', 'World', '!' ];
-console.log( newArray );
-console.log( ...newArray ); //Brought the values in the array together as one string. Or did it?
+/**
+*  Spread Operator
+*  *** Don't get this confused with the rest paramenter! Bother are three dots ...
+*  *** Remember that rest parameter is aways in PARAMETER area of a function, nowhere else. Spread is used ANYWHERE else, basically.
+*/
+const newArray = ['Hello', ',', ' ', 'World', '!'];
+console.log(newArray);
+console.log(...newArray); //Brought the values in the array together as one string. Or did it?
 
 // Spread operator separates into separate values.
-const aBunchOfNums = [ 5, 10, 36, 58 ];
-console.log( addAllNums( 5, 10, 36, 58 )); // This and the below, are equivalent (our array gets broken up!)
-console.log( addAllNums( ...aBunchOfNums )); // Spreading an argument.
+const aBunchOfNums = [5, 10, 36, 58];
+console.log(addAllNums(5, 10, 36, 58)); // This and the below, are equivalent (our array gets broken up!)
+console.log(addAllNums(...aBunchOfNums)); // Spreading an argument.
+
+/**
+ *  String Methods!
+ */
+
+/**
+ *  .search() method:
+ *  
+ *   Regex Learning Tool: https://regexone.com/
+ */
+
+const myTestString = 'Greetings, Programs!';
+console.log(myTestString.search(/tings/i)); // i means case INsensitive. returns the index the word starts from. Returns the SUBSTRING POSITION . TING is 4
+
+
+// if ( prompt( 'enter your pass' ).search( "^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,}$")))
+
+
+/**
+ *  .replace() method
+ */
+
+const myReplacedString = myTestString.replace(/Programs/, 'World'); //Find a string, and replace it! Super cool.
+console.log(myReplacedString);
+
+/**
+ *  Blocks:
+ */
+
+ {
+     const myBlockNestedVar = 38;
+ }
+
+ //console.log( myBlockNestedVar ); - won't print cos it is outside its block
+ // We CAN name blocks if we want.
+ myOrganizeName: {
+     // We can organise some code in here, and control scope of let/const
+     let myBlockNestedVar = 55; // We used the same name as in our unnamed block!? That's okay, it was born in a differently scoped block!
+     myBlockNestedVar++;
+     console.log( myBlockNestedVar );
+ }
