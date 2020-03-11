@@ -143,3 +143,12 @@ myOtherFunction = ( a, b ) => {
 }
 
 console.log( myOtherFunction( 34, 6 ) );
+
+/**
+ *  Function default parameter values
+ */
+
+// We can set defaults, to prevent errors in case notthing gets passed in for a parameter!
+addNums = ( x = 0, y = 0 ) => x + y;
+
+console.log( addNums() ); // No arguments! But our default values kick in!
