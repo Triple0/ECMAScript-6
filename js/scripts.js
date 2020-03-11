@@ -255,6 +255,25 @@ class Movie {
         this.year = year;
     }
 
+    get getName() { // How we retrieve the property. A GETTER
+        return this.name;
+    }
+    set setName( newName ) { // How we store a new property value. A SETTER
+        if ( typeof name === 'string' ){
+            this.name = name;
+        } else {
+            this.name = name.toString();
+        }        
+    }
+
+    get getYear() {
+        return 'Y'+this.year;
+    }
+
+    set setYear( year ) {
+        this.year = Number( year );
+    }
+
     showPoster() { // This is a method! We can name them as we'd like.
         const info = `
             MOVIE INFO
@@ -276,3 +295,8 @@ const godFather = new Movie('GodFather II', 'Action/Thriller', 1974);
 console.log(tron);
 console.log(dragonheart);
 console.log(godFather);
+
+
+/**
+ *  Inheritance.
+ */
