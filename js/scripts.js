@@ -157,8 +157,41 @@ console.log( addNums() ); // No arguments! But our default values kick in!
  *  Rest parameter.
  */
 
- findHighNum = ( ...args ) => {
-     console.log( args );
-     return args;
+ findHighNum = ( minNum = 0, ...args ) => { // ...args will capture any number of arguments that we pass!
+    minNum = Number( minNum );
+    if ( minNum == NaN ) minNum = 0;
+    const highNums = args.filter( ( element ) => element > minNum ); 
+    //console.log( args ); // It can be called by the name we had inbetweeen our parenthesis.
+     return highNums; 
  }
 
+ console.log( findHighNum( 5, 2, 20, 50, 3, 0, 10, 24, -508) );
+
+ addAllNums = ( ...nums ) => nums.reduce( ( a, v ) => a + v );
+ console.log( addAllNums( 64, 6, 10 ) );
+
+/**
+ *  Template Literals.
+ */
+
+ const helloVar = 'Hello, World!';
+ const sampleName = 'Sam';
+
+ constmyNewString = `Hey there, my name is ${sampleName}; I\'d like to give you a big: "${helloVar}"!!`; // works using ` (back ticks)
+ // The syntax for template literala is: ${variableName}
+ // NOTE: This only works inside of backticks! but is super useful. It saves us from extra concatenation.
+ console.log(constmyNewString);
+
+ /**
+ *  Spread Operator
+ *  *** Don't get this confused with the rest paramenter! Bother are three dots ...
+ *  *** Remember that rest parameter is aways in PARAMETER area of a function, nowhere else. Spread is used ANYWHERE else, basically.
+ */
+const newArray = ['Hello', ',', ' ', 'World', '!' ];
+console.log( newArray );
+console.log( ...newArray ); //Brought the values in the array together as one string. Or did it?
+
+// Spread operator separates into separate values.
+const aBunchOfNums = [ 5, 10, 36, 58 ];
+console.log( addAllNums( 5, 10, 36, 58 )); // This and the below, are equivalent (our array gets broken up!)
+console.log( addAllNums( ...aBunchOfNums )); // Spreading an argument.
