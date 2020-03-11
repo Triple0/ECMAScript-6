@@ -74,3 +74,30 @@ console.log([ 1, 2, 3, 4, 5].reduce( function ( a, v ) {
     return a + v;
 } ) ); // Because we have numbers in here, they are being added (mathematically.)
 
+/**
+ * Let and Const
+ */
+
+ var x = 3; // Stands=ard variable declaration. Function-scoped.
+ let y = 7; //Let is block scoped
+ const z = 36; // Const is block-scoped, but re-assignment is not allowed.
+
+ //z = 16; Not allowed! Const must remain with its original assignment.
+ console.log( z );
+
+ y = 13; // Allowed! var and let allow re-assignment.
+ console.log( y );
+
+ // Var is function-scoped, it will persist beyond the for loop
+ for ( var myVar = 0; myVar < 10; myVar++ ) {
+    console.log( 'myVar = '+myVar );
+}
+console.log( 'myVar = '+myVar);
+
+// Let is BLOCK scoped... it lives and dies in ANY block (like an if, or a loop!)
+for ( let myNewVar = 0; myNewVar < 10; myNewVar++ ) {
+    console.log( 'for loop iteration... = ' ); // lives and dies here in a block
+    console.log( 'myVar = '+myNewVar );
+}
+
+//console.log( 'myNewVar = '+myNewVar); // We can't access it outside of the block
