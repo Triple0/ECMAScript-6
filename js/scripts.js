@@ -152,3 +152,13 @@ console.log( myOtherFunction( 34, 6 ) );
 addNums = ( x = 0, y = 0 ) => x + y;
 
 console.log( addNums() ); // No arguments! But our default values kick in!
+
+/**
+ *  Rest parameter.
+ */
+
+ findHighNum = ( ...args ) => {
+     console.log( args );
+     return args;
+ }
+
