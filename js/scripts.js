@@ -113,24 +113,33 @@ const myObj = {
 
 myObj.name = 'Sandy'; // Can we update PROPERTIES or array ELEMENTS inside of a const-declared variables?
 myObj.hobbies = [];
-myObj.hobbies.push('Mountain Climbing');
-console.log(myObj);
+myObj.hobbies.push( 'Mountain Climbing' );
+console.log( myObj );
 
 
- // myObj = {} // THIS WOULD STILL ERROR. Only insides for a const can be manipulated.
+// myObj = {} // THIS WOULD STILL ERROR. Only insides for a const can be manipulated.
 
 /**
  * Let's shake things up with: FUNCTIONS
  * New syntax
  */
 
- function myFunction ( a, b ) {
-     return Number( a ) + Number( b );
- }
+function myFunction( a, b ) {
+    return Number( a ) + Number( b );
+}
 
- console.log(myFunction ( 3, 7 ) );
+console.log(myFunction( 3, 7 ) );
 
- // ES6 style:
- myFunction = ( a, b ) => Number( a ) + Number( b );
- 
- console.log(myFunction ( 3, 8 ) );
+// ES6 style:
+myFunction = (a, b) => Number( a ) + Number( b ); // Instant return with no curly braces.
+
+console.log(myFunction(3, 8));
+
+
+// Bigger function (ES6)
+myOtherFunction = ( a, b ) => {
+    const myAnswer = Number( a ) + Number( b ); // Use curly braces for larger, more complex operations.
+    return myAnswer;
+}
+
+console.log( myOtherFunction( 34, 6 ) );
